@@ -1,7 +1,10 @@
 {
   "name": "plantagotchi-app",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {
+      "enabled": false
+    }
   },
   "type": "angular"
 }
