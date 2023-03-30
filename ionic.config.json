@@ -1,0 +1,7 @@
+{
+  "name": "plantagotchi-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
