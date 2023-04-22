@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WifiService } from './wifi.service';
+import { PlantRepository } from './plant-repository.service';
 
-describe('WifiService', () => {
-    let service: WifiService;
+describe('PlantRepositoryService', () => {
+    let service: PlantRepository;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(WifiService);
+        service = TestBed.inject(PlantRepository);
     });
 
     it('should be created', () => {

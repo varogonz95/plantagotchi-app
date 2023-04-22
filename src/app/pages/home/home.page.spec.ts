@@ -1,18 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { WifiWizard2 } from '@awesome-cordova-plugins/wifi-wizard-2/ngx';
+import { AppModule } from 'src/app/app.module';
+import { PermissionResult } from 'src/app/enums';
+import { WifiService } from 'src/app/services/wifi/wifi.service';
 import { HomePage } from './home.page';
 
 describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+    let component: HomePage;
+    let fixture: ComponentFixture<HomePage>;
 
-  beforeEach(async () => {
-    fixture = TestBed.createComponent(HomePage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(waitForAsync(() => {
+        const wifiWizard2Mock = {
+            async requestPermission() {
+                return PermissionResult.GRANTED
+            },
+            async scan() {
+                return []
+            }
+        }
+        TestBed.configureTestingModule({
+            imports: [AppModule],
+            providers: [
+                {
+                    provide: WifiWizard2,
+                    useValue: wifiWizard2Mock
+                },
+                WifiService,
+            ]
+        })
+    }))
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HomePage);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -1,25 +1,30 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-        <ion-title>Available Networks</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Plantagotchi&trade;</ion-title>
         <ion-progress-bar *ngIf="loading$ | async" type="indeterminate"></ion-progress-bar>
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-    </ion-header>
+<ion-content class="ion-padding">
+    <header class="ion-text-center ion-margin-bottom">
+        <h6><b>Dispositivos</b></h6>
+        <small>{{(plants$ | async)?.length}} dispositivos</small>
+    </header>
 
-    <ion-card *ngFor="let network of networks$ | async">
-        <ion-card-header>
-            <ion-card-title>{{network.SSID}}</ion-card-title>
-            <ion-card-subtitle>{{network.BSSID}}</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-            <ion-button type="primary">Connect</ion-button>
-        </ion-card-content>
-    </ion-card>
+    <ion-grid id="plant-nodes-grid">
+        <ion-row>
+            <ion-col *ngFor="let plant of plants$ | async" size="6">
+                <ion-card class="ion-no-margin ion-padding" color="light" button [routerLink]="['/node-details', plant.id ]">
+                    <ion-card-content>
+                        <ion-label>
+                            <b>{{plant.name}}</b>
+                        </ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

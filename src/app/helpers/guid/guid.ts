@@ -1,0 +1,2 @@
+export type NewGuidOpts = { base?: 2 | 8 | 16, length?: number }
+export const newGuid = (opts: NewGuidOpts = { base: 16, length: 16 }) => Math.floor((Math.random()) * 0x10 * Math.pow(10, opts.length ?? 16)).toString(opts.base ?? 16)

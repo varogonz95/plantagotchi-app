@@ -1,4 +1,15 @@
 {
 	"editor.formatOnSave": true,
-	"editor.formatOnSaveMode": "file"
+	"editor.formatOnSaveMode": "file",
+	"karmaTestExplorer.containerMode": "disabled",
+	"karmaTestExplorer.flattenSingleChildFolders": false,
+	"karmaTestExplorer.karmaConfFilePath": "karma.config.js",
+	"karmaTestExplorer.projectType": "angular",
+	"karmaTestExplorer.testFramework": "jasmine",
+	"karmaTestExplorer.browser": "EdgeHeadless",
+	"vscode-edge-devtools.browserFlavor": "Default",
+	"vscode-edge-devtools.defaultUrl": "",
+	"vscode-edge-devtools.defaultEntrypoint": "",
+	"vscode-edge-devtools.headless": true,
+	"vscode-edge-devtools.showWorkers": false
 }
